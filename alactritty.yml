@@ -1,0 +1,5 @@
+# Font Config 
+font:
+  normal:
+    family: "CaskaydiaCove Nerd Font Mono"
+    style: Regular

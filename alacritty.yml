@@ -1,0 +1,9 @@
+# ~/.config/alacritty/alacritty.yml
+
+# Font configuration
+font:
+  normal:
+    family: "CaskaydiaCove Nerd Font Mono"
+    style: Regular
+
+# Other Alacritty configurations...
