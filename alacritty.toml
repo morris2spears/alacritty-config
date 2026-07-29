@@ -4,7 +4,7 @@ program = "/usr/bin/fish"
 [font]
 normal.family = "CaskaydiaCove Nerd Font Mono"
 normal.style = "Regular"
-size = 24.0
+size = 13.0
 
 # Key bindings for tmux compatibility
 # Send proper escape sequences that tmux will recognize
