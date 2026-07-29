@@ -4,6 +4,13 @@
 # FirstMate window). Key bindings deliberately do NOT live here -- see
 # tmux-keys.toml for why the two profiles need different ones.
 
+[window]
+# Frosted glass: alacritty draws a semi-transparent background, picom blurs
+# whatever is behind it (see the Alacritty rule at the end of the `rules` block
+# in ~/.config/picom/picom.conf). Both must be present -- opacity without the
+# blur rule is just a see-through window.
+opacity = 0.85
+
 [terminal.shell]
 program = "/usr/bin/fish"
 
