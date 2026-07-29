@@ -1,0 +1,13 @@
+# Settings shared by every alacritty window on this box.
+#
+# Imported by both alacritty.toml (normal terminals) and herdr.toml (the
+# FirstMate window). Key bindings deliberately do NOT live here -- see
+# tmux-keys.toml for why the two profiles need different ones.
+
+[terminal.shell]
+program = "/usr/bin/fish"
+
+[font]
+normal.family = "CaskaydiaCove Nerd Font Mono"
+normal.style = "Regular"
+size = 13.0

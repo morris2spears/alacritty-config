@@ -1,0 +1,95 @@
+# Key bindings that rewrite chords into escape sequences tmux can read.
+#
+# WHY THIS IS A SEPARATE FILE, AND WHY herdr.toml DOES NOT IMPORT IT
+#   tmux cannot see Super+h/l on its own, so alacritty translates them into the
+#   private sequences \e[27~ / \e[28~, which ~/.config/tmux/tmux.conf picks up
+#   as user-keys[2]/user-keys[3] and binds to pane/window movement (lines 73-76
+#   there). Same trick for Ctrl+digit and Shift+Enter. These bindings are load
+#   bearing: delete them and Super+h/l stops working in tmux.
+#
+#   The FirstMate window is a different story. It runs `herdr` directly, with no
+#   tmux in between, and herdr speaks the kitty keyboard protocol -- so it
+#   receives a real Super+h natively and matches it against its own config
+#   (~/.config/herdr/config.toml: previous_tab/next_tab = "super+h"/"super+l").
+#   If these bindings applied there, alacritty would rewrite the chord into
+#   \e[27~ before herdr ever saw it, and herdr's binding could never fire.
+#
+#   Hence two profiles: alacritty.toml imports this file, herdr.toml does not.
+
+# Ctrl+digit -> CSI-u, for tmux window switching
+[[keyboard.bindings]]
+key = "Key1"
+mods = "Control"
+chars = "\u001b[49;5u"
+
+[[keyboard.bindings]]
+key = "Key2"
+mods = "Control"
+chars = "\u001b[50;5u"
+
+[[keyboard.bindings]]
+key = "Key3"
+mods = "Control"
+chars = "\u001b[51;5u"
+
+[[keyboard.bindings]]
+key = "Key4"
+mods = "Control"
+chars = "\u001b[52;5u"
+
+[[keyboard.bindings]]
+key = "Key5"
+mods = "Control"
+chars = "\u001b[53;5u"
+
+[[keyboard.bindings]]
+key = "Key6"
+mods = "Control"
+chars = "\u001b[54;5u"
+
+[[keyboard.bindings]]
+key = "Key7"
+mods = "Control"
+chars = "\u001b[55;5u"
+
+[[keyboard.bindings]]
+key = "Key8"
+mods = "Control"
+chars = "\u001b[56;5u"
+
+[[keyboard.bindings]]
+key = "Key9"
+mods = "Control"
+chars = "\u001b[57;5u"
+
+[[keyboard.bindings]]
+key = "Key0"
+mods = "Control"
+chars = "\u001b[48;5u"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001b[13;2u"
+
+# Super+Shift+H/L -> user-keys[0]/[1], tmux window swapping
+[[keyboard.bindings]]
+key = "H"
+mods = "Super|Shift"
+chars = "\u001b[25~"
+
+[[keyboard.bindings]]
+key = "L"
+mods = "Super|Shift"
+chars = "\u001b[26~"
+
+# Super+H/L -> user-keys[2]/[3], tmux pane/window switching
+[[keyboard.bindings]]
+key = "H"
+mods = "Super"
+chars = "\u001b[27~"
+
+[[keyboard.bindings]]
+key = "L"
+mods = "Super"
+chars = "\u001b[28~"

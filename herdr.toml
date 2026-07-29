@@ -1,0 +1,15 @@
+# Profile for the FirstMate window only (alacritty --class firstmate -e herdr).
+# Selected via --config-file in ~/.config/i3/scripts/toggle_firstmate.sh and
+# start_firstmate_hidden.sh.
+#
+# Identical to alacritty.toml except it deliberately does NOT import
+# tmux-keys.toml. There is no tmux in this window -- herdr runs directly and
+# speaks the kitty keyboard protocol, so it gets a real Super+h/Super+l and
+# matches them against previous_tab/next_tab in ~/.config/herdr/config.toml.
+# Importing tmux-keys.toml would rewrite those chords into the tmux user-key
+# sequences first, and herdr's tab bindings could never fire.
+
+[general]
+import = [
+  "~/.config/alacritty/base.toml",
+]
