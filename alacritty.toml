@@ -4,7 +4,7 @@ program = "/usr/bin/fish"
 [font]
 normal.family = "CaskaydiaCove Nerd Font Mono"
 normal.style = "Regular"
-size = 24.0
+size = 13.0
 
 # Key bindings for tmux compatibility
 # Send proper escape sequences that tmux will recognize
@@ -74,13 +74,18 @@ key = "L"
 mods = "Super|Shift"
 chars = "\u001b[26~"
 
-# Map Super+H/L for tmux pane/window switching
-[[keyboard.bindings]]
-key = "H"
-mods = "Super"
-chars = "\u001b[27~"
+# DISABLED 2026-07-29. These mapped Super+H/L to the F13/F14 escape sequences
+# for an old tmux setup, but nothing consumes them any more - the current
+# ~/.tmux.conf has no user-keys and no [27~/[28~ bindings, and neither does
+# nvim, fish or i3. Meanwhile they swallowed Super+H/L before herdr could see
+# them, so herdr's next_tab/previous_tab bindings never fired.
+# Re-enable only if you also restore the tmux side that reads F13/F14.
+# [[keyboard.bindings]]
+# key = "H"
+# mods = "Super"
+# chars = "\u001b[27~"
 
-[[keyboard.bindings]]
-key = "L"
-mods = "Super"
-chars = "\u001b[28~"
+# [[keyboard.bindings]]
+# key = "L"
+# mods = "Super"
+# chars = "\u001b[28~"
